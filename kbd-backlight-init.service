@@ -1,0 +1,12 @@
+[Unit]
+Description=Initialize ThinkPad Keyboard Backlight
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'echo 0 > /sys/class/leds/tpacpi::kbd_backlight/brightness'
+ExecStart=/bin/sh -c 'echo 1 > /sys/class/leds/tpacpi::kbd_backlight/brightness'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
